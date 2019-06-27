@@ -141,6 +141,10 @@ if (!$nav) {
 Http::response(422);
 
 require CLIENTINC_DIR.'header.inc.php';
-require CLIENTINC_DIR.$inc;
-require CLIENTINC_DIR.'footer.inc.php';
 ?>
+<div class="container light page default-page">
+    <div class="row">
+        <?php require CLIENTINC_DIR.$inc; ?>
+    </div>
+</div>
+<?php require CLIENTINC_DIR.'footer.inc.php'; ?>
