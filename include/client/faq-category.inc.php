@@ -2,13 +2,9 @@
 if(!defined('OSTCLIENTINC') || !$category || !$category->isPublic()) die('Access Denied');
 ?>
 
-<div class="row">
-<div class="span8">
-    <h1><?php echo __('Frequently Asked Questions');?></h1>
-    <h2><strong><?php echo $category->getLocalName() ?></strong></h2>
-<p>
-<?php echo Format::safe_html($category->getLocalDescriptionWithImages()); ?>
-</p>
+<h1><?php echo $category->getLocalName(); ?></h1>
+<p><?php echo Format::safe_html($category->getLocalDescriptionWithImages()); ?></p>
+
 <hr>
 <?php
 $faqs = FAQ::objects()
