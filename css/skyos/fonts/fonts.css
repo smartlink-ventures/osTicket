@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'GothamBold';
+  src: url('./Gotham-Bold.otf');
+}
+@font-face {
+  font-family: 'GothamBoldItalic';
+  src: url('./Gotham-BoldItalic.otf');
+}
+@font-face {
+  font-family: 'GothamBook';
+  src: url('./Gotham-Book.otf');
+}
+@font-face {
+  font-family: 'GothamBookItalic';
+  src: url('./Gotham-BookItalic.otf');
+}
+@font-face {
+  font-family: 'GothamLight';
+  src: url('./Gotham-Light.otf');
+}
+@font-face {
+  font-family: 'GothamLightItalic';
+  src: url('./Gotham-LightItalic.otf');
+}
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('./Gotham-Medium.otf');
+}
+@font-face {
+  font-family: 'GothamMediumItalic';
+  src: url('./Gotham-MediumItalic.otf');
+}

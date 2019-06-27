@@ -39,10 +39,22 @@ if ($lang) {
         rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/thread.css" media="screen">
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/redactor.css" media="screen">
-    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>apps/fontawesome/css/all.min.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/flags.css">
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/rtl.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/select2.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-16x16.png" sizes="16x16" />
+
+    <!-- Custom styles -->
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/skyos/fonts/fonts.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/skyos/core.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/skyos/index.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/skyos/responsive.css"/>
+
+    <script type="text/javascript" src="<?php echo ROOT_PATH; ?>apps/fontawesome/js/all.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-3.4.0.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-ui-1.12.1.custom.min.js"></script>
     <script src="<?php echo ROOT_PATH; ?>js/osticket.js"></script>
@@ -79,79 +91,58 @@ if ($lang) {
     ?>
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-            <div class="pull-right flush-right">
-            <p>
-             <?php
-                if ($thisclient && is_object($thisclient) && $thisclient->isValid()
-                    && !$thisclient->isGuest()) {
-                 echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
-                 ?>
-                <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
-                <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
-                <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a>
-            <?php
-            } elseif($nav) {
-                if ($cfg->getClientRegistrationMode() == 'public') { ?>
-                    <?php echo __('Guest User'); ?> | <?php
-                }
-                if ($thisclient && $thisclient->isValid() && $thisclient->isGuest()) { ?>
-                    <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a><?php
-                }
-                elseif ($cfg->getClientRegistrationMode() != 'disabled') { ?>
-                    <a href="<?php echo $signin_url; ?>"><?php echo __('Sign In'); ?></a>
-<?php
-                }
-            } ?>
-            </p>
-            <p>
-<?php
-if (($all_langs = Internationalization::getConfiguredSystemLanguages())
-    && (count($all_langs) > 1)
-) {
-    $qs = array();
-    parse_str($_SERVER['QUERY_STRING'], $qs);
-    foreach ($all_langs as $code=>$info) {
-        list($lang, $locale) = explode('_', $code);
-        $qs['lang'] = $code;
-?>
-        <a class="flag flag-<?php echo strtolower($locale ?: $info['flag'] ?: $lang); ?>"
-            href="?<?php echo http_build_query($qs);
-            ?>" title="<?php echo Internationalization::getLanguageDescription($code); ?>">&nbsp;</a>
-<?php }
-} ?>
-            </p>
-            </div>
-            <a class="pull-left" id="logo" href="<?php echo ROOT_PATH; ?>index.php"
+    <div id="header-main" class="container">
+      <div class="row flex">
+        <div class="flex-item logo-wrap">
+          <a href="<?php echo ROOT_PATH; ?>index.php"
             title="<?php echo __('Support Center'); ?>">
-                <span class="valign-helper"></span>
-                <img src="<?php echo ROOT_PATH; ?>logo.php" border=0 alt="<?php
+                <img id="logo" src="<?php echo ROOT_PATH; ?>logo.php" border=0 alt="<?php
                 echo $ost->getConfig()->getTitle(); ?>">
             </a>
         </div>
-        <div class="clear"></div>
-        <?php
-        if($nav){ ?>
-        <ul id="nav" class="flush-left">
-            <?php
-            if($nav && ($navs=$nav->getNavLinks()) && is_array($navs)){
-                foreach($navs as $name =>$nav) {
-                    echo sprintf('<li><a class="%s %s" href="%s">%s</a></li>%s',$nav['active']?'active':'',$name,(ROOT_PATH.$nav['href']),$nav['desc'],"\n");
-                }
-            } ?>
-        </ul>
-        <?php
-        }else{ ?>
-         <hr>
-        <?php
-        } ?>
-        <div id="content">
+        <div class="flex-item right nav">
+            <?php if ($thisclient && is_object($thisclient) && $thisclient->isValid()) { ?>
+                <div class="nav-item icon" title="Profile">
+                    <a href="<?php echo ROOT_PATH; ?>profile.php" alt="profile">
+                        <i class="fas fa-user-circle fa-lg"></i>
+                    </a>
+                </div>
+                <div class="nav-item icon" title="View Tickets">
+                    <a href="<?php echo ROOT_PATH; ?>tickets.php" alt="profile">
+                        <i class="fas fa-ticket-alt fa-lg"></i>
+                    </a>
+                </div>
+            <?php } ?>
+            <div class="nav-item icon">
+                <a href="/contact.php" alt="contact-skyos">
+                    <i class="far fa-envelope fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item">
+                <?php if ($thisclient && is_object($thisclient) && $thisclient->isValid()) { ?>
+                    <a href="<?php echo $signout_url; ?>"><i class="fas fa-sign-out-alt"></i> Sign out</a>
+                    <!-- <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
+                    <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a>
+                    <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a> -->
+                <?php } elseif($nav) { ?>
+                    <a href="<?php echo $signin_url; ?>"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+                <?php } ?>
+            </div>
+        </div>
+      </div>
+    </div>
 
-         <?php if($errors['err']) { ?>
-            <div id="msg_error"><?php echo $errors['err']; ?></div>
-         <?php }elseif($msg) { ?>
-            <div id="msg_notice"><?php echo $msg; ?></div>
-         <?php }elseif($warn) { ?>
-            <div id="msg_warning"><?php echo $warn; ?></div>
-         <?php } ?>
+    <div id="content">
+        <?php if($errors['err'] || $msg || $warn) { ?>
+            <div class="alerts container">
+                <?php if($errors['err']) { ?>
+                <div id="msg_error" class="alert error"><?php echo $errors['err']; ?></div>
+                <?php }elseif($msg) { ?>
+                <div id="msg_notice" class="alert info"><?php echo $msg; ?></div>
+                <?php }elseif($warn) { ?>
+                <div id="msg_warning" class="alert warning"><?php echo $warn; ?></div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    <!-- </div> (footer) -->
+    
