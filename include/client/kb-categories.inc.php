@@ -9,19 +9,14 @@
     if ($categories->exists(true)) { ?>
         <div><?php echo __('Click on the category to browse FAQs.'); ?></div>
         <ul class="feature-list">
-        <?php foreach ($categories as $C) {
-            if (($p=$C->parent)
-                && ($categories->findFirst(array('category_id' => $p->getId()))))
-            continue;
-
-            $count = $C->faq_count
-        ?>
+        <?php foreach ($categories as $C) { ?>
             <li>
                 <h4>
                     <?php
                         echo sprintf('<a href="faq.php?cid=%d">%s %s</a>',
                             $C->getId(), Format::htmlchars($C->getLocalName()),
-                            $count ? "({$count})": ''
+                            ''
+                            // $count ? "({$count})": ''
                         );
                     ?>
                 </h4>
