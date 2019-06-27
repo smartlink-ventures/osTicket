@@ -5,7 +5,6 @@ if(!defined('OSTCLIENTINC') || !$category || !$category->isPublic()) die('Access
 <h1><?php echo $category->getLocalName(); ?></h1>
 <p><?php echo Format::safe_html($category->getLocalDescriptionWithImages()); ?></p>
 
-<hr>
 <?php
 $faqs = FAQ::objects()
     ->filter(array('category'=>$category))
@@ -18,45 +17,34 @@ $faqs = FAQ::objects()
 
 if ($faqs->exists(true)) {
     echo '
-         <h2>'.__('Further Articles').'</h2>
-         <div id="faq">
-            <ol>';
+        <div id="faq">
+            <ul class="faq-category feature-list">';
 foreach ($faqs as $F) {
         $attachments=$F->has_attachments?'<span class="Icon file"></span>':'';
         echo sprintf('
-            <li><a href="faq.php?id=%d" >%s &nbsp;%s</a></li>',
+            <li class="feature link"><a href="faq.php?id=%d" >%s &nbsp;%s</a></li>',
             $F->getId(),Format::htmlchars($F->question), $attachments);
     }
-    echo '  </ol>
+    echo '  </ul>
          </div>';
-}else {
-    echo '<strong>'.__('This category does not have any FAQs.').' <a href="index.php">'.__('Back To Index').'</a></strong>';
+} else {
+    echo '<p class="timestamp">This category does not have any content yet. Please check our other <a href="index.php">categories</a>.</p>';
 }
 ?>
 </div>
 
-<div class="span4">
-    <div class="sidebar">
-    <div class="searchbar">
-        <form method="get" action="faq.php">
-        <input type="hidden" name="a" value="search"/>
-        <input type="text" name="q" class="search" placeholder="<?php
-            echo __('Search our knowledge base'); ?>"/>
-        <input type="submit" style="display:none" value="search"/>
-        </form>
-    </div>
+<?php if ($faq->getLocalAttachments && $faq->getLocalAttachments->all && $attachments = $faq->getLocalAttachments()->all()) { ?>
     <div class="content">
         <section>
-            <div class="header"><?php echo __('Help Topics'); ?></div>
-<?php
-foreach (Topic::objects()
-    ->filter(array('faqs__faq__category__category_id'=>$category->getId()))
-    as $t) { ?>
-        <a href="?topicId=<?php echo urlencode($t->getId()); ?>"
-            ><?php echo $t->getFullName(); ?></a>
-<?php } ?>
+            <strong><?php echo __('Attachments'); ?>:</strong>
+            <?php foreach ($attachments as $att) { ?>
+                <div>
+                    <a href="<?php echo $att->file->getDownloadUrl(['id' => $att->getId()]); ?>" class="no-pjax">
+                        <i class="icon-file"></i>
+                        <?php echo Format::htmlchars($att->getFilename()); ?>
+                    </a>
+                </div>
+            <?php } ?>
         </section>
     </div>
-    </div>
-</div>
-</div>
+<?php } ?>
