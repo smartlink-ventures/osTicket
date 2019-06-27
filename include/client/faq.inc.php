@@ -6,7 +6,7 @@
 <div id="breadcrumbs" style="padding-top:2px;">
     <a href="index.php"><?php echo __('Categories');?></a>
     &raquo; <a href="faq.php?cid=<?php echo $category->getId(); ?>"><?php
-    echo $category->getFullName(); ?></a>
+    echo $category->getLocalName(); ?></a>
 </div>
 <h1><?php echo $faq->getLocalQuestion() ?></h1>
 <div class="timestamp">
