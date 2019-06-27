@@ -371,6 +371,13 @@ class osTicket {
             return $_SERVER['ORIG_PATH_INFO'];
 
         //TODO: conruct possible path info.
+        $path_info = substr($_SERVER['REQUEST_URI'], strlen($_SERVER['SCRIPT_NAME']));
+        if (strpos($path_info, '?') !== false) {
+            $path_info = substr($path_info, 0, strpos($path_info, "?"));
+        }
+        if (isset($path_info[0]) && $path_info[0] == '/') {
+            return $path_info;
+        }
 
         return null;
     }
