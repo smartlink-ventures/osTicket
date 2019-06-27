@@ -31,7 +31,6 @@ foreach ($faqs as $F) {
     echo '<p class="timestamp">This category does not have any content yet. Please check our other <a href="index.php">categories</a>.</p>';
 }
 ?>
-</div>
 
 <?php if ($faq->getLocalAttachments && $faq->getLocalAttachments->all && $attachments = $faq->getLocalAttachments()->all()) { ?>
     <div class="content">
