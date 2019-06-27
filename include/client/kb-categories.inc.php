@@ -6,8 +6,8 @@
             'ispublic'=>Category::VISIBILITY_PRIVATE,
             'faqs__ispublished'=>FAQ::VISIBILITY_PRIVATE,
         )))
-        ->annotate(array('faq_count'=>SqlAggregate::COUNT('faqs')))
-        ->filter(array('faq_count__gt'=>0));
+        ->annotate(array('faq_count'=>SqlAggregate::COUNT('faqs')));
+        // ->filter(array('faq_count__gt'=>0));
     if ($categories->exists(true)) { ?>
         <div><?php echo __('Click on the category to browse FAQs.'); ?></div>
         <ul id="kb">
