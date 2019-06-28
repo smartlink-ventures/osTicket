@@ -139,7 +139,16 @@ if($ticket && $ticket->checkUserAccess($thisclient)) {
     $inc='open.inc.php';
 }
 include(CLIENTINC_DIR.'header.inc.php');
-include(CLIENTINC_DIR.$inc);
+?>
+<div class="container page default-page">
+    <div class="row light">
+        <?php include(CLIENTINC_DIR.$inc); ?>
+        <hr />
+        <a href="/open.php" class="head-room">Open a new ticket</a>
+    </div>
+</div>
+
+<?php
 print $tform->getMedia();
 include(CLIENTINC_DIR.'footer.inc.php');
 ?>
