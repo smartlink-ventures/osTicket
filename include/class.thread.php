@@ -1638,7 +1638,7 @@ class ThreadEvent extends VerySimpleModel {
                     return implode('/', $assignees);
                 case 'somebody':
                     $name = $self->getUserName();
-                    if ($cfg->isAvatarsEnabled()
+                    if (false && $cfg->isAvatarsEnabled()
                             && ($avatar = $self->getAvatar()))
                         $name = $avatar.$name;
                     return $name;
