@@ -5,92 +5,62 @@
 </p>
 <form action="profile.php" method="post">
   <?php csrf_token(); ?>
-<table width="800" class="padded">
+  <div class="pad-box">
+    <?php foreach ($user->getForms() as $f) { ?>
+        <?php $f->render(['staff' => false]); ?>
+    <?php } ?>
+  </div>
 <?php
-foreach ($user->getForms() as $f) {
-    $f->render(['staff' => false]);
-}
 if ($acct = $thisclient->getAccount()) {
     $info=$acct->getInfo();
     $info=Format::htmlchars(($errors && $_POST)?$_POST:$info);
 ?>
-<tr>
-    <td colspan="2">
-        <div><hr><h3><?php echo __('Preferences'); ?></h3>
-        </div>
-    </td>
-</tr>
-    <tr>
-        <td width="180">
-            <?php echo __('Time Zone');?>:
-        </td>
-        <td>
-            <?php
+
+    <div class="pad-box">
+        <h3><?php echo __('Preferences'); ?></h3>
+        <?php echo __('Time Zone');?>:
+        <?php
             $TZ_NAME = 'timezone';
             $TZ_TIMEZONE = $info['timezone'];
-            include INCLUDE_DIR.'staff/templates/timezone.tmpl.php'; ?>
-            <div class="error"><?php echo $errors['timezone']; ?></div>
-        </td>
-    </tr>
+            include INCLUDE_DIR.'staff/templates/timezone.tmpl.php';
+        ?>
+        <div class="error"><?php echo $errors['timezone']; ?></div>
+    </div>
 <?php if ($cfg->getSecondaryLanguages()) { ?>
-    <tr>
-        <td width="180">
-            <?php echo __('Preferred Language'); ?>:
-        </td>
-        <td>
+    <?php echo __('Preferred Language'); ?>:
     <?php
-    $langs = Internationalization::getConfiguredSystemLanguages(); ?>
-            <select name="lang">
-                <option value="">&mdash; <?php echo __('Use Browser Preference'); ?> &mdash;</option>
+        $langs = Internationalization::getConfiguredSystemLanguages();
+    ?>
+    <select name="lang">
+        <option value="">&mdash; <?php echo __('Use Browser Preference'); ?> &mdash;</option>
 <?php foreach($langs as $l) {
 $selected = ($info['lang'] == $l['code']) ? 'selected="selected"' : ''; ?>
-                <option value="<?php echo $l['code']; ?>" <?php echo $selected;
-                    ?>><?php echo Internationalization::getLanguageDescription($l['code']); ?></option>
+        <option value="<?php echo $l['code']; ?>" <?php echo $selected;
+            ?>><?php echo Internationalization::getLanguageDescription($l['code']); ?></option>
 <?php } ?>
-            </select>
-            <span class="error">&nbsp;<?php echo $errors['lang']; ?></span>
-        </td>
-    </tr>
+    </select>
+    <span class="error">&nbsp;<?php echo $errors['lang']; ?></span>
 <?php }
       if ($acct->isPasswdResetEnabled()) { ?>
-<tr>
-    <td colspan="2">
-        <div><hr><h3><?php echo __('Access Credentials'); ?></h3></div>
-    </td>
-</tr>
+        <div class="pad-box render-field"><h3><?php echo __('Access Credentials'); ?></h3>
 <?php if (!isset($_SESSION['_client']['reset-token'])) { ?>
-<tr>
-    <td width="180">
-        <?php echo __('Current Password'); ?>:
-    </td>
-    <td>
-        <input type="password" size="18" name="cpasswd" value="<?php echo $info['cpasswd']; ?>">
-        &nbsp;<span class="error">&nbsp;<?php echo $errors['cpasswd']; ?></span>
-    </td>
-</tr>
+            <?php echo __('Current Password'); ?>:
+            <input type="password" size="18" name="cpasswd" value="<?php echo $info['cpasswd']; ?>">
+            &nbsp;<span class="error">&nbsp;<?php echo $errors['cpasswd']; ?></span>
+        </div>
 <?php } ?>
-<tr>
-    <td width="180">
-        <?php echo __('New Password'); ?>:
-    </td>
-    <td>
-        <input type="password" size="18" name="passwd1" value="<?php echo $info['passwd1']; ?>">
-        &nbsp;<span class="error">&nbsp;<?php echo $errors['passwd1']; ?></span>
-    </td>
-</tr>
-<tr>
-    <td width="180">
-        <?php echo __('Confirm New Password'); ?>:
-    </td>
-    <td>
-        <input type="password" size="18" name="passwd2" value="<?php echo $info['passwd2']; ?>">
-        &nbsp;<span class="error">&nbsp;<?php echo $errors['passwd2']; ?></span>
-    </td>
-</tr>
+    <div class="pad-box render-field">
+    <?php echo __('New Password'); ?>:
+    <input type="password" size="18" name="passwd1" value="<?php echo $info['passwd1']; ?>">
+    &nbsp;<span class="error">&nbsp;<?php echo $errors['passwd1']; ?></span>
+    </div>
+    <div class="pad-box render-field">
+    <?php echo __('Confirm New Password'); ?>:
+    <input type="password" size="18" name="passwd2" value="<?php echo $info['passwd2']; ?>">
+    &nbsp;<span class="error">&nbsp;<?php echo $errors['passwd2']; ?></span>
+    </div>
 <?php } ?>
 <?php } ?>
-</table>
-<hr>
 <p style="text-align: center;">
     <input type="submit" value="Update"/>
     <input type="reset" value="Reset"/>

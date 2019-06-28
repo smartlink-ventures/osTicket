@@ -39,6 +39,12 @@ if ($user && $_POST) {
 $inc = 'profile.inc.php';
 
 include(CLIENTINC_DIR.'header.inc.php');
-include(CLIENTINC_DIR.$inc);
+?>
+<div class="container light page default-page">
+    <div class="row">
+        <?php include(CLIENTINC_DIR.$inc); ?>
+    </div>
+</div>
+<?php
 include(CLIENTINC_DIR.'footer.inc.php');
 

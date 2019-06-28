@@ -23,7 +23,7 @@ require(CLIENTINC_DIR.'header.inc.php');
 <div id="contact_page" class="container light page default-page">
     <div class="row">
         <h1>Contact</h1>
-        <p>For more information or help using SkyOS, please contact us via email: <a href="mailto: support@smartlink.city">support@smartlink.city</a></p>
+        <p>For more information or help using SkyOS, please contact us via email: <a href="mailto: help@smartlink.city">help@smartlink.city</a></p>
         <hr />
         <h3>Is something wrong?</h3>
         <p><a href="/open.php">Open a ticket</a></p>
