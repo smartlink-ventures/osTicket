@@ -71,22 +71,27 @@ if ($cfg->isClientLoginRequired()) {
     }
 }
 
-require(CLIENTINC_DIR.'header.inc.php');
-if ($ticket
-    && (
-        (($topic = $ticket->getTopic()) && ($page = $topic->getPage()))
-        || ($page = $cfg->getThankYouPage())
-    )
-) {
-    // Thank the user and promise speedy resolution!
-    echo Format::viewableImages(
-        $ticket->replaceVars(
-            $page->getLocalBody()
-        )
-    );
-}
-else {
-    require(CLIENTINC_DIR.'open.inc.php');
-}
-require(CLIENTINC_DIR.'footer.inc.php');
-?>
+require(CLIENTINC_DIR.'header.inc.php'); ?>
+<div class="container light page default-page">
+    <div class="row">
+        <?php
+        if ($ticket
+            && (
+                (($topic = $ticket->getTopic()) && ($page = $topic->getPage()))
+                || ($page = $cfg->getThankYouPage())
+            )
+        ) {
+            // Thank the user and promise speedy resolution!
+            echo Format::viewableImages(
+                $ticket->replaceVars(
+                    $page->getLocalBody()
+                )
+            );
+        }
+        else {
+            require(CLIENTINC_DIR.'open.inc.php');
+        }
+        ?>
+    </div>
+</div>
+<?php require(CLIENTINC_DIR.'footer.inc.php'); ?>
