@@ -9,11 +9,6 @@ if ($cfg->isAvatarsEnabled() && $user)
 ?>
 
 <div class="thread-entry <?php echo $entryTypes[$entry->type]; ?> <?php if ($avatar) echo 'avatar'; ?>">
-<?php if ($avatar) { ?>
-    <span class="<?php echo ($entry->type == 'M') ? 'pull-left' : 'pull-right'; ?> avatar">
-<?php echo $avatar; ?>
-    </span>
-<?php } ?>
     <div class="header">
         <div class="pull-right">
             <span style="vertical-align:middle;" class="textra">
@@ -36,7 +31,7 @@ if ($cfg->isAvatarsEnabled() && $user)
                 echo $entry->title; ?></span>
             </span>
     </div>
-    <div class="thread-body" id="thread-id-<?php echo $entry->getId(); ?>">
+    <div class="thread-body head-room foot-room" id="thread-id-<?php echo $entry->getId(); ?>">
         <div><?php echo $entry->getBody()->toHtml(); ?></div>
         <div class="clear"></div>
 <?php
