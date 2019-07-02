@@ -62,7 +62,7 @@ require(CLIENTINC_DIR.'header.inc.php');
     </div>
     </div>
 
-    <div id="support" class="container light highlight-topic">
+    <div id="support" class="container light highlight-topic row">
         <div class="row flex">
             <div class="flex-item">
                 <h2>Discovering any issues?</h2>
@@ -74,7 +74,7 @@ require(CLIENTINC_DIR.'header.inc.php');
         </div>
     </div>
 
-    <div id="no-find" class="container light highlight-topic">
+    <div id="no-find" class="container light highlight-topic row">
         <div class="row flex">
             <div class="flex-item">
                 <h2>Can't find what you're looking for?</h2>

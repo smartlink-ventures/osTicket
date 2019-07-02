@@ -58,13 +58,6 @@
     display: block;
   }
 
-  .highlight-topic .row.flex {
-    display: block;
-  }
-  .highlight-topic .flex-item:last-child {
-    text-align: left;
-  }
-
   .flex-item-3.max {
     max-width: none;
   }
@@ -77,5 +70,11 @@
   input.search {
     max-width: none;
     width: calc(100% - var(--row-padding, 15px));
+  }
+  .highlight-topic .row.flex {
+    display: block;
+  }
+  .highlight-topic .flex-item:last-child {
+    text-align: left;
   }
 }
