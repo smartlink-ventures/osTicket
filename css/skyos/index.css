@@ -106,19 +106,21 @@ li.feature {
   background-color: var(--color-lighter-gray);
 }
 
-#no-find {
+.highlight-topic {
   background-color: #f9f9f9;
   min-height: 250px;
 }
-#no-find .row {
+.highlight-topic .row {
   margin: 0 auto;
   padding-top: 45px;
   max-width: 865px;
 }
-#no-find .flex-item:first-child {
+.highlight-topic.ht-reverse .flex-item:last-child,
+.highlight-topic .flex-item:first-child {
   flex: 3;
 }
-#no-find .flex-item:last-child {
+.highlight-topic.ht-reverse .flex-item:first-child,
+.highlight-topic .flex-item:last-child {
  flex-basis: 250px;
  text-align: center;
 }

@@ -62,7 +62,19 @@ require(CLIENTINC_DIR.'header.inc.php');
     </div>
     </div>
 
-    <div id="no-find" class="container light">
+    <div id="support" class="container light highlight-topic">
+        <div class="row flex">
+            <div class="flex-item button">
+                <a href="/open.php">Open Ticket</a>
+            </div>
+            <div class="flex-item">
+                <h2>Discovering any issues?</h2>
+                <p>Please help us improve our software.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="no-find" class="container light highlight-topic ht-reverse">
         <div class="row flex">
             <div class="flex-item">
                 <h2>Can't find what you're looking for?</h2>
