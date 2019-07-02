@@ -153,7 +153,7 @@ button {
 .button.inline a,
 .button.inline a:visited,
 .button.inline a:active {
-  height: none;
+  height: auto;
   display: inline-block;
 }
 
