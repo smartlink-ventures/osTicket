@@ -115,22 +115,8 @@ li.feature {
   margin-top: 20px;
 }
 
-#support .flex-item {
-  flex-basis: 400px;
-}
-
 #support .row {
   padding-top: 55px;
-  margin: 0 auto;
-  width: 75%;
-}
-
-#support .flex-item:first-child {
-  flex: 3;
-}
-#support .flex-item:last-child {
- flex-basis: 250px;
- text-align: center;
 }
 
 #footer {

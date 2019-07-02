@@ -71,13 +71,4 @@
     max-width: none;
     width: calc(100% - var(--row-padding, 15px));
   }
-  #support .row {
-    width: 90%;
-  }
-  #support .row.flex {
-    display: block;
-  }
-  #support .flex-item:last-child {
-    text-align: left;
-  }
 }
