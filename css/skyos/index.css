@@ -119,6 +119,11 @@ li.feature {
   flex-basis: 400px;
 }
 
+#support .row {
+  margin: 0 auto;
+  width: 75%;
+}
+
 #support .flex-item:first-child {
   flex: 3;
 }
