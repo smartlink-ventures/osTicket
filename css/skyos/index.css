@@ -115,14 +115,12 @@ li.feature {
   padding-top: 45px;
   max-width: 865px;
 }
-.highlight-topic.ht-reverse .flex-item:last-child,
 .highlight-topic .flex-item:first-child {
+  flex: 3;
+}
+.highlight-topic .flex-item:last-child {
   flex-basis: 250px;
   text-align: center;
-}
-.highlight-topic.ht-reverse .flex-item:first-child,
-.highlight-topic .flex-item:last-child {
-  flex: 3;
 }
 
 #footer {
