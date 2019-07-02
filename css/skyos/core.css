@@ -113,13 +113,6 @@ button {
   text-decoration: none;
 }
 
-.button.inline a,
-.button.inline a:visited,
-.button.inline a:active {
-  height: none;
-  display: inline-block;
-}
-
 .timestamp {
   font-style: italic;
   opacity: 0.7;
@@ -152,6 +145,16 @@ button {
 .light .button a:hover {
   color: white;
   background-color: var(--color-gray);
+}
+
+.light .button a,
+.light .button a:visited,
+.light .button a:active,
+.button.inline a,
+.button.inline a:visited,
+.button.inline a:active {
+  height: none;
+  display: inline-block;
 }
 
 .light input,
