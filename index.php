@@ -64,7 +64,7 @@ require(CLIENTINC_DIR.'header.inc.php');
                 <i class="fas fa-ticket fa-4x"></i>
             </div>
             <span class="title">Discovering issues?</span>
-            <p>Help us improve our software.</p>
+            <p>Open a support ticket to help us improve our software.</p>
         </div>
     </div>
 </div>
