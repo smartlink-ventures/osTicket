@@ -113,6 +113,13 @@ button {
   text-decoration: none;
 }
 
+.button.inline a,
+.button.inline a:visited,
+.button.inline a:active {
+  height: none;
+  display: inline-block;
+}
+
 .timestamp {
   font-style: italic;
   opacity: 0.7;

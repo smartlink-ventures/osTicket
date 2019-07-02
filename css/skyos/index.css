@@ -106,21 +106,17 @@ li.feature {
   background-color: var(--color-lighter-gray);
 }
 
-.highlight-topic {
+#support {
   background-color: #f9f9f9;
   min-height: 250px;
 }
-.highlight-topic .row {
-  margin: 0 auto;
-  padding-top: 45px;
-  max-width: 865px;
+
+#support .button {
+  margin-top: 20px;
 }
-.highlight-topic .flex-item:first-child {
-  flex: 3;
-}
-.highlight-topic .flex-item:last-child {
-  flex-basis: 250px;
-  text-align: center;
+
+#support .flex-item {
+  flex-basis: 400px;
 }
 
 #footer {
