@@ -120,6 +120,7 @@ li.feature {
 }
 
 #support .row {
+  padding-top: 55px;
   margin: 0 auto;
   width: 75%;
 }
