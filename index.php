@@ -61,7 +61,7 @@ require(CLIENTINC_DIR.'header.inc.php');
 ?>
         <div class="flex-item-3 feature link" onClick="window.location.href='http://support.smartlink.ai/open.php'">
             <div class="foot-room">
-                <i class="fas fa-ticket fa-4x"></i>
+                <i class="fas fa-ticket-alt fa-4x"></i>
             </div>
             <span class="title">Discovering issues?</span>
             <p>Open a support ticket to help us improve our software.</p>
