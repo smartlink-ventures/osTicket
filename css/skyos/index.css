@@ -117,12 +117,12 @@ li.feature {
 }
 .highlight-topic.ht-reverse .flex-item:last-child,
 .highlight-topic .flex-item:first-child {
-  flex: 3;
+  flex-basis: 250px;
+  text-align: center;
 }
 .highlight-topic.ht-reverse .flex-item:first-child,
 .highlight-topic .flex-item:last-child {
- flex-basis: 250px;
- text-align: center;
+  flex: 3;
 }
 
 #footer {
