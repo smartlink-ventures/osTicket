@@ -119,6 +119,14 @@ li.feature {
   flex-basis: 400px;
 }
 
+#support .flex-item:first-child {
+  flex: 3;
+}
+#support .flex-item:last-child {
+ flex-basis: 250px;
+ text-align: center;
+}
+
 #footer {
   background-color: inherit;
   min-height: 50px;

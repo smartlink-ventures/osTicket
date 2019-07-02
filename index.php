@@ -74,6 +74,8 @@ require(CLIENTINC_DIR.'header.inc.php');
             <div class="flex-item">
                 <h2>Can't find what you're looking for?</h2>
                 <p>We'll help you find the answer.</p>
+            </div>
+            <div class="flex-item button">
                 <a class="button" href="/contact.php">Contact Us</a>
             </div>
         </div>

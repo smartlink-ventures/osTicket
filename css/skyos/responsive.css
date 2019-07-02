@@ -71,10 +71,10 @@
     max-width: none;
     width: calc(100% - var(--row-padding, 15px));
   }
-  .highlight-topic .row.flex {
+  #support .row.flex {
     display: block;
   }
-  .highlight-topic .flex-item:last-child {
+  #support .flex-item:last-child {
     text-align: left;
   }
 }
