@@ -107,7 +107,7 @@ button {
   border: 2px solid white;
   border-radius: var(--border-radius);
   color: white;
-  height: 50px;
+  height: auto;
   font-family: var(--font-family-thick);
   font-size: 1.1em;
   text-decoration: none;
@@ -136,7 +136,7 @@ button {
   border: 2px solid var(--color-gray);
   border-radius: var(--border-radius);
   color: var(--color-gray);
-  height: 50px;
+  height: auto;
   font-family: var(--font-family-thick);
   font-size: 1.1em;
   text-decoration: none;
@@ -145,16 +145,6 @@ button {
 .light .button a:hover {
   color: white;
   background-color: var(--color-gray);
-}
-
-.light .button a,
-.light .button a:visited,
-.light .button a:active,
-.button.inline a,
-.button.inline a:visited,
-.button.inline a:active {
-  height: auto;
-  display: inline-block;
 }
 
 .light input,
