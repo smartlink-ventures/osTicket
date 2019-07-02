@@ -17,6 +17,9 @@ if ($content) {
 ?>
 <h1><?php echo Format::display($title); ?></h1>
 <p><?php echo Format::display($body); ?></p>
+<div class="alert warning " style="max-width: 750px; width: auto;">
+    <p><i class="fas fa-exclamation"></i> &nbsp; For your security, we require you to create a separate account from the SkyOS portal.</p>
+</div>
 <form action="login.php" method="post" id="clientLogin">
     <?php csrf_token(); ?>
 <div style="display:table-row">
