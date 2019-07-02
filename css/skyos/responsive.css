@@ -58,10 +58,10 @@
     display: block;
   }
 
-  #no-find .row.flex {
+  .highlight-topic .row.flex {
     display: block;
   }
-  #no-find .flex-item:last-child {
+  .highlight-topic .flex-item:last-child {
     text-align: left;
   }
 
