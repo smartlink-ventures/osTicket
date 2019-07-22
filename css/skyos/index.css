@@ -96,7 +96,7 @@ li.feature {
   max-width: none;
   text-align: left;
 }
-.feature.danger i {
+.feature.danger svg {
   color: var(--color-error-red);
 }
 .feature .title {
@@ -110,6 +110,10 @@ li.feature {
 .feature:hover {
   cursor: pointer;
   background-color: var(--color-lighter-gray);
+}
+.feature.danger p {
+  font-weight: 600;
+  font-style: italic;
 }
 
 #support {
