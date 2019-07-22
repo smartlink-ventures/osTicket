@@ -96,10 +96,16 @@ li.feature {
   max-width: none;
   text-align: left;
 }
+.feature.danger i {
+  color: var(--color-error-red);
+}
 .feature .title {
   color: var(--color-muted-lighter-primary);
   font-family: var(--font-family-thick);
   font-weight: 600;
+}
+.feature.danger .title {
+  color: var(--color-error-red);
 }
 .feature:hover {
   cursor: pointer;
