@@ -1,5 +1,15 @@
 osTicket
 ========
+#### Updating Support Site
+
+1. Push all changes to this repo.
+1. SSH into the support site server.
+1. `cd /osticket`
+1. `sudo git checkout develop`
+1. `sudo git pull`
+1. `sudo php manage.php deploy -v /var/www/osticket`
+
+========
 <a href="http://osticket.com"><img src="http://osticket.com/sites/default/files/osTicket.jpg"
 align="left" hspace="10" vspace="6"></a>
 
